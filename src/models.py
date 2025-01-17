@@ -41,29 +41,28 @@ class Planet(db.Model):
             "population": self.population,
             "url": self.url,
         }
-    
-    class Character(db.Model):
-        id = db.Column(db.Integer, primary_key=True)
-        uid = db.Column(db.String(100), unique=True, nullable=False)  
-        name = db.Column(db.String(100), nullable=False)
-        gender = db.Column(db.String(30))
-        birth_year = db.Column(db.String(30))
-        height = db.Column(db.String(30))
-        url = db.Column(db.String(200)) 
+class Character(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    uid = db.Column(db.String(100), unique=True, nullable=False)  
+    name = db.Column(db.String(100), nullable=False)
+    gender = db.Column(db.String(30))
+    birth_year = db.Column(db.String(30))
+    height = db.Column(db.String(30))
+    url = db.Column(db.String(200)) 
 
-        def __repr__(self):
-            return f'<Character {self.name}>'
+    def __repr__(self):
+        return f'<Character {self.name}>'
 
-        def serialize(self):
-            return {
-                "id": self.id,
-                "uid": self.uid,
-                "name": self.name,
-                "gender": self.gender,
-                "birth_year": self.birth_year,
-                "height": self.height,
-                "url": self.url,
-            }
+    def serialize(self):
+        return {
+            "id": self.id,
+            "uid": self.uid,
+            "name": self.name,
+            "gender": self.gender,
+            "birth_year": self.birth_year,
+            "height": self.height,
+            "url": self.url,
+        }
             
 class Favorite(db.Model):
     id = db.Column(db.Integer, primary_key=True)
